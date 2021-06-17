@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Acceuil
+{% endblock %}
+
+{% block body %}
+	<div class="flex flex-col space-y-6 justify-center items-center min-h-screen">
+		<h1 class="text-center text-5xl text-blue-600 font-semibold">
+			I
+			<span class="text-pink-500">&hearts;</span>
+			Symfony and Tailwind !
+		</h1>
+		<a href="https://tailwindcss.com/" target="_blank" class="btnPrimary">Tailwindcss</a>
+		<a href="https://tailwindcss.com/docs/optimizing-for-production#writing-purgeable-html" target="_blank" class="bg-green-500 text-white p-4 rounded hover:bg-green-300 shadow-lg">Purgecss</a>
+		<a href="https://tailwindcss.com/docs/plugins" target="_blank" class="bg-purple-500 text-white p-4 rounded hover:bg-purple-300 shadow-lg">Tailwind plugins</a>
+	</div>
+
+{% endblock %}
