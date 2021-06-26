@@ -19,6 +19,7 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('email')
             ->add('agreeTerms', CheckboxType::class, [
+                'label' => 'j\'accepte les conditions générales',
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
@@ -29,6 +30,7 @@ class RegistrationFormType extends AbstractType
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
+                'label' => 'Mot de passe',
                 'mapped' => false,
                 'constraints' => [
                     new NotBlank([
@@ -36,13 +38,12 @@ class RegistrationFormType extends AbstractType
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => 'Votre mot de passe doit faire {{ limit }} caractères',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
                 ],
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

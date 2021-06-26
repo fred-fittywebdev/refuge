@@ -4,6 +4,10 @@
 
 @layer components {
   .btnPrimary {
-    @apply bg-blue-500 text-white p-4 rounded hover:bg-blue-300 shadow-lg;
+    @apply bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded;
+  }
+  ,
+  .btnGreen {
+    @apply px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-green-600 rounded-md hover:bg-green-500 focus:outline-none focus:bg-green-500;
   }
 }
