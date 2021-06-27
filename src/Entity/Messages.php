@@ -35,7 +35,7 @@ class Messages
     /**
      * @ORM\Column(type="boolean")
      */
-    private $is_read;
+    private $is_read = 0;
 
     /**
      * @ORM\ManyToOne(targetEntity=Users::class, inversedBy="sent")
@@ -48,6 +48,11 @@ class Messages
      * @ORM\JoinColumn(nullable=false)
      */
     private $recipient;
+
+    public function __construct()
+    {
+        $this->created_at = new \DateTime();
+    }
 
     public function getId(): ?int
     {
