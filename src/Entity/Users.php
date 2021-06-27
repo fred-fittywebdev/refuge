@@ -53,6 +53,11 @@ class Users implements UserInterface
      */
     private $received;
 
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $prenom;
+
     public function __construct()
     {
         $this->sent = new ArrayCollection();
@@ -210,6 +215,18 @@ class Users implements UserInterface
                 $received->setRecipient(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(?string $prenom): self
+    {
+        $this->prenom = $prenom;
 
         return $this;
     }

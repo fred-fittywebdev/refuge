@@ -20,7 +20,7 @@
 	<div class="example-wrapper">
 		{% if app.user %}
 			<h1>Bienvenue
-				{{ app.user.username}}! ✅</h1>
+				{{ app.user.prenom}}! ✅</h1>
 		{% endif %}
 		{% for message in app.flashes('message') %}
 			<div class="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 my-10">
