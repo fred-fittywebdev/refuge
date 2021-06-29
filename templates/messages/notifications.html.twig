@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MessagesController!
+{% endblock %}
+
+{% block body %}
+	{% set message = globalMessage.findBy({}, {'id' : 'DESC'}, 1) %}
+	{% for prenom in message %}
+		<h1>Messagerie - Vous avez un nouveau message</h1>
+		<p>Vous avez reçu un message de
+			<strong>{{prenom.sender}}</strong>
+		</p>
+		<a href=" {{ absolute_url(path('messages')) }} ">Voir le message</a>
+
+	{% endfor %}
+{% endblock %}

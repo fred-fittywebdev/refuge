@@ -10,6 +10,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Mailer\Mailer;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Component\Mailer\MailerInterface;
 
 class MessagesController extends AbstractController
 {
@@ -26,7 +29,7 @@ class MessagesController extends AbstractController
     /**
      * @Route("/send", name="send")
      */
-    public function send(Request $request): Response
+    public function send(Request $request, MailerInterface $mailer): Response
     {
         $message = new Messages();
         $form = $this->createForm(MessagesType::class, $message);
@@ -38,7 +41,17 @@ class MessagesController extends AbstractController
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($message);
+            // dd($message->getRecipient()->getEmail());
             $em->flush();
+
+            $email = (new TemplatedEmail())
+                ->from('no-reply@manawalua.fr')
+                ->to($message->getRecipient()->getEmail())
+                ->subject('Messagerie - Nouveau message.')
+                ->htmlTemplate('messages/notifications.html.twig');
+
+
+            $mailer->send($email);
 
             $this->addFlash("message", "Votre message à bien été envoyé");
             return $this->redirectToRoute('messages');
