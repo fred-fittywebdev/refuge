@@ -63,18 +63,18 @@
 						<div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
 
 						<div x-show="dropdownOpen" class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
-							<a class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white" href=" {{ path('messages') }} ">Acceuil</a>
+							<a class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-gray-400 hover:text-white" href=" {{ path('messages') }} ">Acceuil</a>
 
-							<a class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white" href=" {{ path('received') }} ">Boîte de réception</a>
-							<a class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white" href=" {{ path('sent') }} ">Messages Envoyés</a>
+							<a class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-gray-400 hover:text-white" href=" {{ path('received') }} ">Boîte de réception</a>
+							<a class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-gray-400 hover:text-white" href=" {{ path('sent') }} ">Messages Envoyés</a>
 
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="flex items-center justify-center py-4 text-center bg-gray-100 dark:bg-gray-700">
-				<a href="{{ path('send') }}" class="mx-2 text-sm font-bold text-blue-600 dark:text-blue-400 hover:text-blue-500">Envoyer un message</a>
+			<div class="flex items-center justify-center py-4 text-cente">
+				<a href="{{ path('send') }}" class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Envoyer un message</a>
 			</div>
 		</div>
 	</div>
