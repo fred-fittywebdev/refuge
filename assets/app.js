@@ -11,5 +11,7 @@ import './styles/app.css';
 // start the Stimulus application
 import './bootstrap';
 import 'alpinejs';
+import './copyToClipboard.js'
+import './showPassword.js'
 
 // alert('coucou');

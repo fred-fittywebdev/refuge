@@ -5,45 +5,45 @@
 
 {% block body %}
 	{# <form method="post">
-																										{% if error %}
-																											<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-																										{% endif %}
-																								
-																										{% if app.user %}
-																											<div class="mb-3">
-																												You are logged in as
-																												{{ app.user.username }},
-																												<a href="{{ path('app_logout') }}">Logout</a>
-																											</div>
-																										{% endif %}
-																								
-																										<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-																										<label for="inputEmail">Email</label>
-																										<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-																										<label for="inputPassword">Password</label>
-																										<input type="password" name="password" id="inputPassword" class="form-control" required>
-																								
-																										<input
-																										type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-																								
-																										{#
-																																																				        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-																																																				        See https://symfony.com/doc/current/security/remember_me.html
-																																																				
-																																																				        <div class="checkbox mb-3">
-																																																				            <label>
-																																																				                <input type="checkbox" name="_remember_me"> Remember me
-																																																				            </label>
-																																																				        </div>
-																																																				    #}
+																																																																													{% if error %}
+																																																																														<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+																																																																													{% endif %}
+																																																																											
+																																																																													{% if app.user %}
+																																																																														<div class="mb-3">
+																																																																															You are logged in as
+																																																																															{{ app.user.username }},
+																																																																															<a href="{{ path('app_logout') }}">Logout</a>
+																																																																														</div>
+																																																																													{% endif %}
+																																																																											
+																																																																													<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+																																																																													<label for="inputEmail">Email</label>
+																																																																													<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+																																																																													<label for="inputPassword">Password</label>
+																																																																													<input type="password" name="password" id="inputPassword" class="form-control" required>
+																																																																											
+																																																																													<input
+																																																																													type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+																																																																											
+																																																																													{#
+																																																																																																							        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+																																																																																																							        See https://symfony.com/doc/current/security/remember_me.html
+																																																																																																							
+																																																																																																							        <div class="checkbox mb-3">
+																																																																																																							            <label>
+																																																																																																							                <input type="checkbox" name="_remember_me"> Remember me
+																																																																																																							            </label>
+																																																																																																							        </div>
+																																																																																																							    #}
 
 	{# <button class="btnPrimary" type="submit">
-																											Sign in
-																										</button>
-																									</form>
-																									<p>
-																										<a href="{{ path('app_forgot_password_request') }}">Réinitialiser le mot de passe</a>
-																									</p>  #}
+																																																																														Sign in
+																																																																													</button>
+																																																																												</form>
+																																																																												<p>
+																																																																													<a href="{{ path('app_forgot_password_request') }}">Réinitialiser le mot de passe</a>
+																																																																												</p>  #}
 
 		<div class="my-72 w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800"> <div class="px-6 py-4">
 			<h2 class="mb-2 text-3xl font-bold text-center text-gray-700 dark:text-white">Manawa Lua</h2>
@@ -71,21 +71,29 @@
 				<input
 				type="email" value="{{ last_username }}" name="email" id="inputEmail" class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" required autofocus>
 				{# <label for="inputPassword">Mot de passe</label> #}
-				<input type="password" name="password" id="inputPassword" class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" required>
+				<div class="relative">
+					<input type="password" name="password" id="inputPassword" class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" required>
+					<button id="btnShow" class="absolute right-2 top-2 focus:outline-none">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+						</svg>
+					</button>
+				</div>
+				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-				<input
-				type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-				{#
-																																																																																																																																																																								        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-																																																																																																																																																																								        See https://symfony.com/doc/current/security/remember_me.html
-																																																																																																																																																																								
-																																																																																																																																																																								        <div class="checkbox mb-3">
-																																																																																																																																																																								            <label>
-																																																																																																																																																																								                <input type="checkbox" name="_remember_me"> Remember me
-																																																																																																																																																																								            </label>
-																																																																																																																																																																								        </div>
-																																																																																																																																																																								    #}
+				<div class="flex flex-col items-center justify-center py-4 text-center  dark:bg-gray-700">
+					<span class="text-sm text-gray-600 dark:text-gray-200 mb-5">Choisir le mot de passe aléatoire
+					</span>
+					<div class="flex items-center justify-between border border-gray-300 w-full py-2 px-4 rounded-md">
+						<p id="content-copy" class="mx-2 text-sm font-bold text-purple-600 dark:text-blue-400 hover:text-purple-500">{{ passAléatoire }}</p>
+						<button id="btn-copy">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+							</svg>
+						</button>
+					</div>
+				</div>
 				<div class="flex items-center justify-between mt-4">
 					<a href=" {{ path('app_forgot_password_request') }} " class=" text-sm text-gray-600 dark:text-gray-200 hover:text-gray-500">Mot de passe oublié?</a>
 
@@ -97,23 +105,24 @@
 			</form>
 			<p>
 				{# <div class="w-full mt-4">
-																																																																																																																																																																							<input class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="email" placeholder="Email Address" aria-label="Email Address">
-																																																																																																																																																																						</div>
-																																																																																																																																																																		
-																																																																																																																																																																						<div class="w-full mt-4">
-																																																																																																																																																																							<input class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="password" placeholder="Password" aria-label="Password">
-																																																																																																																																																																						</div>
-																																																																																																																																																																		
-																																																																																																																																																																						<div class="flex items-center justify-between mt-4">
-																																																																																																																																																																							<a href="#" class="text-sm text-gray-600 dark:text-gray-200 hover:text-gray-500">Forget Password?</a>
-																																																																																																																																																																		
-																																																																																																																																																																							<button class="px-4 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded hover:bg-gray-600 focus:outline-none" type="button">
-																																																																																																																																																																								Login
-																																																																																																																																																																							</button>
-																																																																																																																																																																						</div> #}
+																																																																																																																																																																																																																																																																																																																																																																																			<input class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="email" placeholder="Email Address" aria-label="Email Address">
+																																																																																																																																																																																																																																																																																																																																																																																		</div>
+																																																																																																																																																																																																																																																																																																																																																																														
+																																																																																																																																																																																																																																																																																																																																																																																		<div class="w-full mt-4">
+																																																																																																																																																																																																																																																																																																																																																																																			<input class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="password" placeholder="Password" aria-label="Password">
+																																																																																																																																																																																																																																																																																																																																																																																		</div>
+																																																																																																																																																																																																																																																																																																																																																																														
+																																																																																																																																																																																																																																																																																																																																																																																		<div class="flex items-center justify-between mt-4">
+																																																																																																																																																																																																																																																																																																																																																																																			<a href="#" class="text-sm text-gray-600 dark:text-gray-200 hover:text-gray-500">Forget Password?</a>
+																																																																																																																																																																																																																																																																																																																																																																														
+																																																																																																																																																																																																																																																																																																																																																																																			<button class="px-4 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded hover:bg-gray-600 focus:outline-none" type="button">
+																																																																																																																																																																																																																																																																																																																																																																																				Login
+																																																																																																																																																																																																																																																																																																																																																																																			</button>
+																																																																																																																																																																																																																																																																																																																																																																																		</div> #}
 			</p>
 
 		</div>
+
 
 		<div class="flex items-center justify-center py-4 text-center bg-gray-100 dark:bg-gray-700">
 			<span class="text-sm text-gray-600 dark:text-gray-200">Pas encore de compte?
@@ -121,5 +130,6 @@
 
 			<a href="{{ path('app_register') }}" class="mx-2 text-sm font-bold text-blue-600 dark:text-blue-400 hover:text-blue-500">Inscription</a>
 		</div>
+
 	</div>
 {% endblock %}
